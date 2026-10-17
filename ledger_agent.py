@@ -117,7 +117,7 @@ def build():
     up, idc = CFG["updated_col"], CFG["id_col"]
     if up in df and idc in df:
         df["_u"] = pd.to_datetime(df[up], utc=True, errors="coerce")
-        df = df.sort_values("_u").drop_duplicates(idc, keep="last").drop(columns="_u")
+        df = df.sort_values("_u", kind="mergesort").drop_duplicates(idc, keep="last").drop(columns="_u")
     # business date in IST
     dc = CFG["date_col"]
     if dc in df:
@@ -134,6 +134,7 @@ def build():
         else:
             df["amount_usd"] = amt
         paid = df[CFG["status_col"]].astype(str).str.lower().eq("paid") if CFG["status_col"] in df else True
+        df["revenue_usd"] = df["amount_usd"].where(paid, 0.0)
         df["refund_usd"] = df["amount_usd"].where(df[CFG["status_col"]].astype(str).str.lower().eq("refunded"), 0.0)
         df["is_paid"] = paid
     DF = df
@@ -198,6 +199,7 @@ def answer(question):
     err, expr = None, None
     for _ in range(2):
         expr = ask_llm(question, err)
+        print("Q:", question, "\nEXPR:", expr, flush=True)
         try:
             return clean(run_expr(expr))
         except Exception as e:  # retry once with the error
