@@ -34,7 +34,7 @@ CFG = dict(
 TZ = "Asia/Kolkata"
 BASE = os.environ.get("LEDGER_BASE", "https://exam.sanand.workers.dev/questionData?email=23f3000733%40ds.study.iitm.ac.in&quizSign=KngAg8U77oMh2SDGF7jlHSciWapMDcih1Gc7r6GryO9BZqvJjFrYmn0KCz214FAXnbIrAV2y4Dv3RCif1CufTGsyTEakwJEKlJt7ZfDDXxjC5KtweJ5eGbOiXqVqgWfcGmuN1e6YGWSK%2BoS4h4mhZt%2F6ZvGxtXOWDpXl7f0MnaL0oVBhGAcLE%2Fxs1K5DfRJ9CGuecD%2BUY59II5Ngs1x3DpfxOOS7qfcZxNDlsOnG3VaXwJi48w%2BWFd75%2BaCk%2FI355o9ZNaA4gyCE7zaXIhLQ4PHbcleP5wQvp5eqhvdIAvq5mKFgwBTDB9haMVUqjOuhxGdojdSafO46oiJY%2BL2hKQ%3D%3D&questionId=q-ledger-agent-server&path=/")
 LLM_BASE = os.environ.get("OPENAI_BASE_URL", "https://aipipe.org/openai/v1")
-LLM_KEY = os.environ.get("OPENAI_API_KEY", "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6IjIzZjMwMDA3MzNAZHMuc3R1ZHkuaWl0bS5hYy5pbiIsImlhdCI6MTc5MjI0ODM0OSwiaXNzIjoiaHR0cHM6Ly9haXBpcGUub3JnIiwiYXVkIjoiYWlwaXBlLWFwaSIsImV4cCI6MTc5Mjg1MzE0OX0.AFJmwo1xNFdjXafJ9-0g0edsI--_O1vyAzN035JHxEw")
+LLM_KEY = os.environ.get("OPENAI_API_KEY", "")
 LLM_MODEL = os.environ.get("LLM_MODEL", "gpt-4o-mini")
 
 # ---------------------------------------------------------------- fetching
